@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // import './PostNew.css';
@@ -8,41 +8,68 @@ const PostNew = (props) => {
     const navigate = useNavigate();
     const params = useParams();
     const id = params.id;
-    const posts = props.posts;
-    const user = props.user;
-    console.log(props);
+    const [post, setPost] = useState(null);
+    // const posts = props.posts;
+    // const user = props.user;
+    // console.log(props);
+
+
+    useEffect(() => {
+        const BASE_URL = process.env.REACT_APP_BASE_URL;
+        const fetchPost = async () => {
+          try {
+            const response = await fetch(`${BASE_URL}/posts/${id}`);
+            if (response.ok) {
+              const data = await response.json();
+              setPost(data);
+            } else {
+              console.error('Error fetching post:', response.statusText);
+            }
+          } catch (error) {
+            console.error('Error fetching post:', error);
+          }
+        };
+    
+        fetchPost();
+      }, [id]);
 
     const today = new Date();
     const formattedDate = today.toISOString().slice(0, 10); 
    
-    const post = posts.find((p) => p.id === id);
-    console.log(post);
+
+    // const post = posts.find((post) => post._id === id);
+    // console.log(post);
     // state to hold all form data
     const [form, setForm] = useState({
-        name: `${user.name}`,
-        username: `${user.username}`,
-        text: `${post.text}`,
-        image: `${post.image}`,
+        name: '', //`${post.name}`,
+        username: '',//`${post.username}`,
+        text: '', //`${post.text}`,
+        image: '', //`${post.image}`,
         date: formattedDate,
-        likes: `${post.likes}`,
-        recrypts: `${post.recrypts}`,
-        comments: `${post.comments}`,
+        likes: '', //`${post.likes}`,
+        recrypts: '', //`${post.recrypts}`,
+        comments: '', //`${post.comments}`,
         
     });
      // handleChanges function for form
     const handleChanges = (event) => {
-        setForm({ ...form, [event.target.text]: event.target.value });
+        setForm({ ...form, [event.target.name]: event.target.value });
+
     };
 
     // handle the submission of the form
     const handleSubmit = (event) => {
         event.preventDefault();
         props.createPost(form).then(() => {
-            navigate('/userPosts');
+            navigate('/posts');
         }).catch((err) => {
             console.log(err);
         });
     };
+    if (!post) {
+        return <div>Loading...</div>;
+      }
+    
 
     const loaded = () => {
         return (
@@ -55,8 +82,8 @@ const PostNew = (props) => {
                         <div className="col-12 col-md-6">
                             <div className="post-new-data">
                                 {/* <img src={user.profileimg} /> */}
-                                <p><span>Name: </span>{user['name']}</p>
-                                <p><span>Username: </span>{user['username']}</p>
+                                <p><span>Name: </span>{post['name']}</p>
+                                <p><span>Username: </span>{post['username']}</p>
                                 <p><span>Date: </span>{post['date']}</p>
                                 <p><span>Text: </span>{post['text']}</p>
                                 <p><span>image: </span>{post['image']}</p>
@@ -104,7 +131,7 @@ const PostNew = (props) => {
                                     className="pure-u-1"
                                     type="text"
                                     value={form.text}
-                                    name="nickname"
+                                    name="text"
                                     // placeholder="Post Nickname" 
                                     onChange={handleChanges}
                                 />
@@ -124,7 +151,7 @@ const PostNew = (props) => {
                                     className="pure-u-1"
                                     type="text"
                                     value={form.likes}
-                                    name="size"
+                                    name="likes"
                                     // placeholder="0"   
                                     onChange={handleChanges}
                                 />
@@ -134,7 +161,7 @@ const PostNew = (props) => {
                                     className="pure-u-1"
                                     type="text"
                                     value={form.recrypts}
-                                    name="size"
+                                    name="recrypts"
                                     // placeholder="0"
                                     onChange={handleChanges}
                                 />
@@ -144,7 +171,7 @@ const PostNew = (props) => {
                                     className="pure-u-1"
                                     type="text"
                                     value={form.comments}
-                                    name="size"
+                                    name="comments"
                                     // placeholder="0"
                                     onChange={handleChanges}
                                 />
@@ -219,7 +246,7 @@ const PostNew = (props) => {
 
 return (
     <>
-    {props.posts.length > 0 ? loaded() : loading()}
+    {post ? loaded() : loading()}
     </>
 )
 }

@@ -1,6 +1,6 @@
 import { createContext, useReducer } from 'react';
 
-export const PostContext = createContext()
+export const PostsContext = createContext()
 
 export const postReducer = (state, action) => {
   switch (action.type) {
@@ -36,7 +36,7 @@ export const postReducer = (state, action) => {
   }
 };
 
-export const PostContextProvider = ({ children }) => {
+export const PostsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(postReducer, {
     posts: [],
   });
@@ -48,8 +48,8 @@ export const PostContextProvider = ({ children }) => {
   console.log('postContext state:', state);
 
   return (
-    <PostContext.Provider value={{ ...state, dispatch, editPost }}>
+    <PostsContext.Provider value={{ ...state, dispatch, editPost }}>
       {children}
-    </PostContext.Provider>
+    </PostsContext.Provider>
   );
 };

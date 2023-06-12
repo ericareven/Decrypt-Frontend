@@ -57,31 +57,76 @@
 
 // export default Posts;
 
-import React from 'react';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import Container from './userProfile/container'
+
+// const Posts = ({ post }) => {
+//   const postItemStyle = {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     position: 'relative',
+//   };
+
+//   const postId = post._id.toString()
+  
+//   return (
+//     <div className="postItem" style={postItemStyle}>
+//       <Link to={`/${postId}`}>
+//         <div className="postImages">
+//             <Container posts={posts} />
+//         </div>
+//         {/* <div className="postImages">
+//           <img src={post.img} alt={post.title} />
+//         </div> */}
+//         {/* <h3>{post.title}</h3> */}
+//       </Link>
+//     </div>
+//   );
+// };
+
+// export default Posts;
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Container from './userProfile/container'
+import Button from '../components/button'
 
-const Posts = ({ post }) => {
-  const postItemStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    position: 'relative',
-  };
+const PostsPage = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/');
+        if (response.ok) {
+          const data = await response.json();
+          setPosts(data);
+        } else {
+          console.error('Error fetching posts:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
-    <div className="postItem" style={postItemStyle}>
-      <Link to={`/${post.id}`}>
-        <div className="postImages">
-            <Container posts={posts} />
+    <div>
+      <h1>Posts Page</h1>
+      <Button to={`/`}  label="Home" />
+      <Button to={`/posts/new`}  label="Add" />
+      {posts.map((post) => (
+        <div key={post._id}>
+          <Container posts={posts} />
+          
         </div>
-        {/* <div className="postImages">
-          <img src={post.img} alt={post.title} />
-        </div> */}
-        {/* <h3>{post.title}</h3> */}
-      </Link>
+      ))}
     </div>
   );
 };
 
-export default Posts;
+export default PostsPage;
