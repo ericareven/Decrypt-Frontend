@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 // import { useAuthContext } from './hooks/useAuthContext'
 import { ToastContainer } from 'react-toastify'
 import Header from './components/header';
@@ -14,6 +15,12 @@ import About from './pages/about'
 import Posts from './pages/posts'
 
 function App() {
+
+  // const [posts, setPosts] = useState(null)
+  // const [user, setUser] = useState(null)
+  // const [userPosts, setUserPosts] = React.useState([]) 
+  // const URL = process.env.REACT_APP_BASE_URL
+
   return (
     <>
 //  <Router>
@@ -22,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/signin' element={<Signin />} />
+        {/* <Route path='/signin' element={!user ? <Signin baseUrl={URL} /> : <Navigate to="/" />} /> */}
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
         <Route path='/posts' element={<Posts />} />
