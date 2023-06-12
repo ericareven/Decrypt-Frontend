@@ -1,16 +1,17 @@
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useAuthContext } from './hooks/useAuthContext'
+// import { useAuthContext } from './hooks/useAuthContext'
 import { ToastContainer } from 'react-toastify'
 import Header from './components/header';
 import Footer from './components/footer';
 import Main from './components/main';
 // import Home from './pages/home'
-// import Signin from './pages/signin'
-// import Register from './pages/register'
+import Signin from './pages/signin'
+import Register from './pages/register'
 // import Test from './pages/test'
-// import About from './pages/about'
+import About from './pages/about'
+import Posts from './pages/posts'
 
 function App() {
   return (
@@ -18,10 +19,14 @@ function App() {
 //  <Router>
     <div className='App'>
       <Header />
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Main />} />
-      </Routes> */}
-      <Main />
+        <Route path='/signin' element={<Signin />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/posts' element={<Posts />} />
+      </Routes>
+      {/* <Main /> */}
       <Footer />
     </div>
     </Router>
@@ -29,6 +34,9 @@ function App() {
     </>
   );
 }
+
+export default App;
+
 // function App() {
 //   const [posts] = React.useState([])
 //   const { user } = useAuthContext()
@@ -54,4 +62,4 @@ function App() {
 //   );
 // }
 
-export default App;
+// export default App;

@@ -93,7 +93,7 @@ const Main = (props) => {
             <Route path="/" element={<Welcome posts={posts}/>} />    
             {/* <Route path="/welcome" element={<Welcome posts={posts}/>} /> */}
             <Route path="/about" element={<About posts={posts}/>} />
-            <Route path="/signin" element={<Signin/>} />
+            <Route path="/signin" element={<Signin user={user}/>} />
             {/* <Route path='/signin' element={!user ? <Signin baseUrl={URL} /> : <Navigate to="/" />} /> */}
             <Route path="/register" element={<Register/>} />
             <Route path="/posts" element={<Posts posts={posts}/>} />
