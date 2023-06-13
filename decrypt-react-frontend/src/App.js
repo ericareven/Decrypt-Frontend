@@ -15,6 +15,7 @@ import About from './pages/about'
 import PostsPage from './pages/posts'
 import NewPost from './pages/newPost'
 import EditPost from './pages/editPost'
+import DeletePost from './pages/deletePost'
 // import Test from './pages/test'
 
 function App() {
@@ -24,13 +25,11 @@ const { user } = useContext(AuthContext);
 const [posts, setPosts] = useState([]);
 const URL = process.env.REACT_APP_BASE_URL;
 console.log(URL)
-const { id } = useParams();
 
-// const id = posts.id;
 
 const fetchPosts = async () => {
   try {
-    const response = await fetch(`${URL}/`);
+    const response = await fetch(`${URL}`);
     const data = await response.json();
     setPosts(data.data);
   } catch (error) {
@@ -40,7 +39,7 @@ const fetchPosts = async () => {
 
 const createPost = async (postData) => {
   try {
-    await fetch(`${URL}/posts`, {
+    await fetch(`${URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +54,7 @@ const createPost = async (postData) => {
 
 const deletePost = async (id) => {
   try {
-    await fetch(`${URL}/posts/${id}`, {
+    await fetch(`${URL}/${id}`, {
       method: 'DELETE',
     });
     fetchPosts();
@@ -99,7 +98,8 @@ useEffect(() => {
         <Route path='/about' element={<About />} />
         <Route path='/posts' element={<PostsPage posts={posts} />} />
         <Route path='/posts/new' element={<NewPost createPost={createPost} setPosts={setPosts}/>} />
-        <Route path='/posts/:id/edit' element={<EditPost posts={posts} editPost={editPost} deletePost={deletePost}  setPosts={setPosts}/>} />
+        <Route path='/posts/:id/edit' element={<EditPost posts={posts} editPost={editPost} />} />
+        <Route path='/posts/:id' element={<DeletePost posts={posts} deletePost={deletePost}/>} />
         {/* <Route path='/posts/:id' element={<EditPost posts={posts} />} /> */}
       </Routes>
       <Footer />
@@ -111,69 +111,3 @@ useEffect(() => {
 }
 
 export default App;
-
-// function App() {
-//   const [posts] = React.useState([])
-//   const { user } = useAuthContext()
-//   const BASE_URL = process.env.REACT_APP_BASE_URL; 
-//   return (
-//     <>
-//     <Router>
-//       <main className='App'>
-//         <Header />
-//         <Routes>
-//           <Route path='/' element={<Main posts={posts} user={user}/>} />
-//           <Route path='/about' element={<About posts={posts}/>} />
-//           <Route path='/' element={!user ? <Home baseUrl={BASE_URL} /> : <Navigate to="/" />} />
-//           <Route path='/signin' element={!user ? <Signin baseUrl={BASE_URL} /> : <Navigate to="/test" />} />
-//           <Route path='/register' element={!user ? <Register baseUrl={BASE_URL} /> : <Navigate to="/test" />} />
-//           <Route path='/test' element={!user ? <Test baseUrl={BASE_URL} /> : <Navigate to="/test" />} />
-//         </Routes>
-//         <Footer />
-//       </main>
-//     </Router>
-//     <ToastContainer />
-//     </>
-//   );
-// }
-
-// export default App;
-
-
-  // const { user } = useAuthContext()
-  // const BASE_URL = process.env.REACT_APP_BASE_URL;
-  // const [posts, setPosts] = useState(null)
-  // const [user, setUser] = useState(null)
-  // const [userPosts, setUserPosts] = React.useState([]) 
-  // const URL = process.env.REACT_APP_BASE_URL
-
-//   return (
-//     <div className="App">
-//       <Router>
-//         <Header />
-//         <div className="pages">
-//           <Routes>
-//             <Route 
-//               path="/" 
-//               element={!user ? <Main/> : <Navigate to="/" />} 
-//             />
-//             <Route 
-//               path="/welcome" 
-//               element={user ? <Welcome baseUrl={BASE_URL} /> : <Navigate to="/" />} 
-//             /> 
-//             <Route 
-//               path="/signin" 
-//               element={!user ? <Signin baseUrl={BASE_URL} /> : <Navigate to="/welcome" />} 
-//             /> 
-//             <Route 
-//               path="/register" 
-//               element={!user ? <Register baseUrl={BASE_URL} /> : <Navigate to="/welcome" />} 
-//             /> 
-//           </Routes>
-//         </div>
-//         <Footer />
-//       </Router>
-//       {/* <ToastContainer /> */}
-//     </div>
-//   );
-// }

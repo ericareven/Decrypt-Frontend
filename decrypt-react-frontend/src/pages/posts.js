@@ -69,7 +69,7 @@ const PostsPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/`);
+        const response = await fetch(`${BASE_URL}`);
         if (response.ok) {
           const data = await response.json();
           setPosts(data.data);
@@ -96,6 +96,7 @@ const PostsPage = () => {
         reversedPosts.map((post) => (
           <div key={post._id} className='container'>
             <Container post={post}/>
+            <Button to={`/posts/${post._id}`} label="Delete" className='button' />
           </div>
         ))}
     </div>

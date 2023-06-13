@@ -1,12 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../styles/editposts.css'
-import Button from '../components/button'
+import '../styles/delete.css'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function EditPost({ posts = [], editPost, deletePost }) {
+function DeletePost({ posts = [], editPost, deletePost }) {
   const navigate = useNavigate();
   const { id } = useParams()
   const [isClicked, setIsClicked] = useState(false);
@@ -50,28 +49,28 @@ function EditPost({ posts = [], editPost, deletePost }) {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!post) {
-      console.error("Post not found");
-      return;
-    }
-    try {
-      await editPost(postData, id);
-      navigate('/posts');
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-//   const handleDelete = async () => {
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!post) {
+//       console.error("Post not found");
+//       return;
+//     }
 //     try {
-//       await deletePost(post._id);
+//       await editPost(postData, id);
 //       navigate('/posts');
 //     } catch (error) {
 //       console.error(error);
 //     }
 //   };
+
+  const handleDelete = async () => {
+    try {
+      await deletePost(post._id);
+      navigate('/posts');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
@@ -96,7 +95,7 @@ function EditPost({ posts = [], editPost, deletePost }) {
     <div className='edit-page'>
       <section className='new'>
       <div className='new-container'>
-      <form className={formClassName} onSubmit={handleSubmit}>
+      {/* <form className={formClassName} onSubmit={handleDelete}>
       <div className={`toggle-bar ${isClicked ? 'active' : ''}`} onClick={toggleColor}>
             <div className="toggle-handle"></div>
           </div>
@@ -117,15 +116,14 @@ function EditPost({ posts = [], editPost, deletePost }) {
           onChange={handleChange}
         /><br></br>
         <button type="submit" className="button add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
-      </form>
-      <Button to={`/posts/:id`} label="Add" className='button' />
-      {/* <button type='button' className='button delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
+      </form> */}
+      <button type='button' className='button delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
             Delete
-      </button> */}
+      </button>
       </div>
       </section>
     </div>
   );
 }
 
-export default EditPost;
+export default DeletePost;
