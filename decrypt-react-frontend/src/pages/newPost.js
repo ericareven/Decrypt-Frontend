@@ -77,20 +77,21 @@ function NewPost({ createPost, setPosts }) {
             <div className="toggle-handle"></div>
           </div>
       <h1>Create a Post</h1>
-        <input
+        {/* <input
           className='first-input'
           type="text"
           name="name"
           value={postData.name}
           placeholder="Name"
           onChange={handleChange}
-        /><br></br>
+        /><br></br> */}
         <input
           className='second-input' 
           type="text"
           name="username"
           value={postData.username}
           placeholder="Username"
+          readOnly
         /><br></br>
         <textarea
           className='textarea third-input'

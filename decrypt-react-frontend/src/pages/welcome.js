@@ -9,7 +9,7 @@ const Welcome = (props) => {
                 <div className="welcome-content">
                     <h1>Welcome to Decrypt</h1>
                     <br />
-                    <h4>Interested in Cyber Security?</h4>
+                    <h4>Are you a cyber security enthusiast?</h4>
                     <h4>So are we!</h4>
                 </div>
             </div>
