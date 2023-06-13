@@ -1,2 +1,0 @@
-# Decrypt-Frontend
-GA Capstone
