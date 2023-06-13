@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSignin } from "../hooks/useSignIn";
 import { useNavigate } from "react-router-dom";
+import '../styles/signin.css'
 
 const SigninForm = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ const SigninForm = () => {
           />
         </div>
 
-        <button className="signin-button" disabled={isLoading}>
+        <button className="button" disabled={isLoading}>
           Sign In
         </button>
       </form>

@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import { useEffect, useState, useContext } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthContext } from './context/authContext'
 // import { ToastContainer } from 'react-toastify'
 import Header from './components/header';
@@ -10,11 +11,11 @@ import Footer from './components/footer';
 import Signin from './pages/signin'
 import Register from './pages/register'
 import Welcome from './pages/welcome'
-// import Test from './pages/test'
 import About from './pages/about'
 import PostsPage from './pages/posts'
 import NewPost from './pages/newPost'
 import EditPost from './pages/editPost'
+// import Test from './pages/test'
 
 function App() {
 

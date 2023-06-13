@@ -1,4 +1,4 @@
-.signin {
+.signin-container {
     /* background-image: url("../../public/signin.jpg") ; */
     background-size: cover;
     background-position: -60px;
@@ -6,10 +6,14 @@
     width: 100%;
     /* align-items: center; */
     display: flex;
-    justify-content: left;
+    justify-content: center;
     padding: 15% 0;
     z-index: -1;
+    margin-top: 30px;
   }
+.signin-heading {
+    margin-top: 30px;
+}
 .signin-content {
     padding: 30px;
     position: relative;
@@ -27,9 +31,9 @@ button {
 .home-button-auth {
     width: 12.8em;
 }
-.home-button-auth .link {
+/* .home-button-auth .link {
     color: white;
-}
+} */
 
 @media (max-width: 768px) {
     .container .pure-form {

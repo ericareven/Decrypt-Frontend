@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useRegister } from '../hooks/useRegister';
-// import './registerForm.css';
+import '../styles/signin.css';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -16,9 +16,9 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h3 className="register-heading">Create an Account</h3>
+    <div className="signin-container">
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <h3 className="signin-heading">Create an Account</h3>
 
         <div className="register-input-group">
           <label htmlFor="name">Name:</label>
@@ -60,7 +60,7 @@ const RegisterForm = () => {
           />
         </div>
 
-        <button className="register-button" disabled={isLoading}>
+        <button className="button" disabled={isLoading}>
           Register
         </button>
 

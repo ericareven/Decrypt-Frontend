@@ -106,7 +106,7 @@ function NewPost({ createPost, setPosts }) {
           placeholder="Image URL"
           onChange={handleChange}
         /><br></br>
-        <button type="submit" className="button-27 add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
+        <button type="submit" className="button add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
       </form>
       </div>
       </section>

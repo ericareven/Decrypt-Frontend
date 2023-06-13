@@ -66,7 +66,7 @@ const PostShow= (props) => {
                         />
                         <input type="submit" value="Update Post" />
                     </form>
-                    <button id="delete" onClick={deletePost}>DELETE</button>
+                    <button id="delete" onClick={deletePost} className='button' >DELETE</button>
                 </div>
             </div>
         )

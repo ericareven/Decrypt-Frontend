@@ -1,0 +1,117 @@
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: space-around;
+    /* background-color: rgb(56, 64, 60, 0.8); */
+    background-color: rgb(44, 65, 37);
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    font-size: 1rem;
+    height: 4rem;
+    backdrop-filter: blur(8px);
+    align-items: center;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .nav-item {
+    flex-basis: 200px;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #F1EBE4;
+    padding-inline: 20px;
+  }
+  
+  .nav-item a:hover{
+    text-decoration: none;
+    color: rgb(77, 127, 96);
+  }
+  
+  @media (max-width: 1280px) {
+    .nav {
+        justify-content: center;
+        padding: 20px;
+    }
+  
+    .nav-item {
+        flex-basis: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+  
+    .nav-dropdown {
+      flex-basis: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+  
+  .link {
+    text-decoration: none;
+    cursor: pointer;
+    padding-inline: 30px;
+    position: relative;
+    width: auto;
+  }
+  
+  .link:active, :visited {
+    color: #F1EBE4;
+  }
+  
+  .link:hover {
+    color:  rgb(77, 127, 96);
+  }
+  
+  .link-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .nav-item:hover .nav-dropdown {
+    display: block;
+  }
+  
+  .nav-dropdown:hover {
+    color: rgb(156, 199, 172);
+  }
+  
+  .nav-dropdown {
+    display: none;
+    position: relative;
+    z-index: 1;
+    /* background-color: rgb(56, 64, 60); */
+    background-color: rgb(35, 52, 29);
+    border-radius: 5px;
+    padding: 0.2rem;
+    font-size: 16px;
+    width: 250px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+    filter: invert(100%);
+    mix-blend-mode: difference;
+    margin-right: auto;
+    padding: 0;
+    /* padding: 0.4em; */
+    
+  }
+  
+  @media screen and (max-width: 1280px) {
+    .navbar-collapse {
+      display: none;
+    }
+  }

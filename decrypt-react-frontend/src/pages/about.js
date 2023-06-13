@@ -1,5 +1,6 @@
-// import './About.css';
+import '../styles/about.css';
 import { Link } from 'react-router-dom';
+import Button from '../components/button'
 
 const About = (props) => {
     return (
@@ -19,14 +20,15 @@ const About = (props) => {
 
                 <p>At Decrypt, our goal is to inspire networking, knowledge sharing, and continued learning.</p>
             
-                <button className='home-button'>
+                {/* <button className='home-button'>
                             <Link to="/" className='link'>Home</Link>
-                </button>
+                </button> */}
+                <Button to={`/`}  label="Home" className='button' />
             </div>
-            <div className='about-pic'>
+            {/* <div className='about-pic'>
                 <div className="bg"></div>
-                <img className="plant" src="/plant.png"></img>
-            </div>
+                <img className="aboutimg" src="/about.png"></img>
+            </div> */}
         </div>
     </div>
     )

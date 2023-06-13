@@ -1,5 +1,5 @@
 .signin {
-    background-image: url("../../public/signin.jpg") ;
+    /* background-image: url("../../public/signin.jpg") ; */
     background-size: cover;
     background-position: -60px;
     min-height: 100vh;
@@ -27,9 +27,9 @@ button {
 .home-button-auth {
     width: 12.8em;
 }
-.home-button-auth .link {
+/* .home-button-auth .link {
     color: white;
-}
+} */
 
 @media (max-width: 768px) {
     .container .pure-form {

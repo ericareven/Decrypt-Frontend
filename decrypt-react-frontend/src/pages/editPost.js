@@ -114,9 +114,9 @@ function EditPost({ posts = [], editPost, deletePost, setPost }) {
           placeholder="Image URL"
           onChange={handleChange}
         /><br></br>
-        <button type="submit" className="button-27 add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
+        <button type="submit" className="button add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
       </form>
-      <button type='button' className='button-27 delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
+      <button type='button' className='button delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
             Delete
       </button>
       </div>

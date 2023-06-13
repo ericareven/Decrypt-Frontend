@@ -1,4 +1,4 @@
-// import './Footer.css';
+import '../styles/footer.css';
 
 const Footer = (props) => {
     return (
