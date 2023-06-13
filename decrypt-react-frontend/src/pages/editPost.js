@@ -4,11 +4,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-function EditPost({ posts = [], editPost, deletePost, setPost }) {
+function EditPost({ posts = [], editPost, deletePost, setPosts}) {
   const navigate = useNavigate();
   const { id } = useParams()
   const [isClicked, setIsClicked] = useState(false);
-  const params = useParams()
+//   const params = useParams()
 //   const id = params.id
 //   const posts = props.posts
   const post = posts.find((p) => p._id === id)
@@ -29,9 +29,9 @@ function EditPost({ posts = [], editPost, deletePost, setPost }) {
     // Fetch the post data from the backend
     const fetchPost = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/posts/${id}`); 
+        const response = await fetch(`${BASE_URL}/posts/${id}/edit`); 
         const data = await response.json();
-        setPost(data);
+        setPosts(data.data);
         setPostData({
           text: data.text,
           image: data.image,
@@ -55,7 +55,7 @@ function EditPost({ posts = [], editPost, deletePost, setPost }) {
       return;
     }
     try {
-      await editPost(postData, post._id);
+      await editPost(postData, id);
       navigate('/posts');
     } catch (error) {
       console.error(error);

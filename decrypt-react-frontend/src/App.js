@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
-import { useEffect, useState, useContext } from "react"
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect, useState, useContext  } from "react"
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthContext } from './context/authContext'
 // import { ToastContainer } from 'react-toastify'
@@ -24,7 +24,9 @@ const { user } = useContext(AuthContext);
 const [posts, setPosts] = useState([]);
 const URL = process.env.REACT_APP_BASE_URL;
 console.log(URL)
-const id = posts.id;
+const { id } = useParams();
+
+// const id = posts.id;
 
 const fetchPosts = async () => {
   try {
