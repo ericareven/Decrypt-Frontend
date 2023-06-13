@@ -7,8 +7,10 @@ const Welcome = (props) => {
         <div className="welcome-page" >
             <div className="transparent-box">
                 <div className="welcome-content">
-                    <h1>Welcome Page</h1>
-                    <p>Welcome to Decrypt!</p>
+                    <h1>Welcome to Decrypt</h1>
+                    <br />
+                    <h4>Interested in Cyber Security?</h4>
+                    <h4>So are we!</h4>
                 </div>
             </div>
         </div>

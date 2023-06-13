@@ -118,10 +118,6 @@ function EditPost({ posts = [], editPost, deletePost }) {
         /><br></br>
         <button type="submit" className="button add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
       </form>
-      <Button to={`/posts/:id`} label="Add" className='button' />
-      {/* <button type='button' className='button delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
-            Delete
-      </button> */}
       </div>
       </section>
     </div>

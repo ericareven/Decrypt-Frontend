@@ -69,7 +69,7 @@ const Container = (props) => {
                 </div>
               </div>
               <div className="postButtons">
-                <Button to={`/posts/new`} label="NEW" className='button' />
+                {/* <Button to={`/posts/new`} label="NEW" className='button' /> */}
                 <Button to={`/posts/${post._id}/edit`} label="Edit" className='button' />
               </div>
             </div>

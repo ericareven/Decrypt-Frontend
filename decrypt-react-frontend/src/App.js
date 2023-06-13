@@ -7,7 +7,6 @@ import { AuthContext } from './context/authContext'
 // import { ToastContainer } from 'react-toastify'
 import Header from './components/header';
 import Footer from './components/footer';
-// import Main from './components/main';
 import Signin from './pages/signin'
 import Register from './pages/register'
 import Welcome from './pages/welcome'
@@ -100,7 +99,6 @@ useEffect(() => {
         <Route path='/posts/new' element={<NewPost createPost={createPost} setPosts={setPosts}/>} />
         <Route path='/posts/:id/edit' element={<EditPost posts={posts} editPost={editPost} />} />
         <Route path='/posts/:id' element={<DeletePost posts={posts} deletePost={deletePost}/>} />
-        {/* <Route path='/posts/:id' element={<EditPost posts={posts} />} /> */}
       </Routes>
       <Footer />
     </div>

@@ -95,28 +95,7 @@ function DeletePost({ posts = [], editPost, deletePost }) {
     <div className='edit-page'>
       <section className='new'>
       <div className='new-container'>
-      {/* <form className={formClassName} onSubmit={handleDelete}>
-      <div className={`toggle-bar ${isClicked ? 'active' : ''}`} onClick={toggleColor}>
-            <div className="toggle-handle"></div>
-          </div>
-      <h1>Edit Post</h1>
-        <textarea
-          className='textarea third-input'
-          name="text"
-          value={postData.text}
-          placeholder="text"
-          onChange={handleChange}
-        /><br></br>
-        <input
-          className='fourth-input'
-          type="text"
-          name="image"
-          value={postData.image}
-          placeholder="Image URL"
-          onChange={handleChange}
-        /><br></br>
-        <button type="submit" className="button add" style={{width:'20vw', color:'black', marginTop:'3rem'}} role="button">Post</button>
-      </form> */}
+      <h3>Are you sure you want to delete this post? It cannot be recovered!</h3>
       <button type='button' className='button delete' style={{ marginTop: '1rem' }} onClick={handleDelete}>
             Delete
       </button>
