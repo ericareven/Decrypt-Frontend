@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useRegister } from '../hooks/useRegister';
+import { useNavigate } from "react-router-dom";
 import '../styles/signin.css';
 
 const RegisterForm = () => {
@@ -9,10 +10,12 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { register, error, isLoading } = useRegister(process.env.REACT_APP_BASE_URL);
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await register(name, username, email, password);
+    navigate('/')
   };
 
   return (

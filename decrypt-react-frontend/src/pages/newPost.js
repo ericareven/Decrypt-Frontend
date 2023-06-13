@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
 import {PostsContext} from '../context/postsContext'
+import '../styles/newposts.css'
 
 // import { useContext } from 'react';
 
@@ -68,7 +69,7 @@ function NewPost({ createPost, setPosts }) {
   }, [setPosts]);
 
   return (
-    <div className='newPost'>
+    <div className='new-page'>
       <section className='new'>
       <div className='new-container'>
       <form className={formClassName} onSubmit={handleSubmit}>

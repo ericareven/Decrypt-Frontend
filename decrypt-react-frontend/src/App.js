@@ -40,7 +40,7 @@ const fetchPosts = async () => {
 
 const createPost = async (postData) => {
   try {
-    await fetch(`${URL}/posts/`, {
+    await fetch(`${URL}/posts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const deletePost = async (id) => {
 
 const editPost = async (posts, id) => {
   try {
-    await fetch(`${URL}/posts/${id}`, {
+    await fetch(`${URL}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

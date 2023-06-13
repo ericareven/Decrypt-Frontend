@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../styles/editposts.css'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -91,7 +92,7 @@ function EditPost({ posts = [], editPost, deletePost, setPosts}) {
 //   }, []);
 
   return (
-    <div className='newPost'>
+    <div className='edit-page'>
       <section className='new'>
       <div className='new-container'>
       <form className={formClassName} onSubmit={handleSubmit}>
